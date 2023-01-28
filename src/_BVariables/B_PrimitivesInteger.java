@@ -1,6 +1,6 @@
 package _BVariables;
 
-public class B_PrimitivesIntegerNumbers {
+public class B_PrimitivesInteger {
     public static void main(String[] args) {
         // Primitives are a type of data which represent a value
 

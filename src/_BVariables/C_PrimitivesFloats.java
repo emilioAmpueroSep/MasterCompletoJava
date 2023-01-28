@@ -1,6 +1,6 @@
 package _BVariables;
 
-public class C_PrimitivesFloatingPointNumbers {
+public class C_PrimitivesFloats {
     
     // static float varOutMethod; // it hasnt value assinged, it will be 0.0
     static float varOutMethod = 45.2F; // with value assinged
@@ -8,6 +8,8 @@ public class C_PrimitivesFloatingPointNumbers {
     public static void main(String[] args) {
 //        the floatings, are used for save more than a quantity of numbers because of use of comma or point.
 //        los flotantes, doubles se usan para almacenar mas cantidad de numeros debido al uso de la coma o punto.
+
+//        by default, float variables are type double, so we have to put "F" at the end of the literal.
 
         float realFloat = 1.0F; // its the same that: float realFloat = 1;
         System.out.println("realFloat = " + realFloat);
@@ -45,7 +47,7 @@ public class C_PrimitivesFloatingPointNumbers {
         float varFloat = 3.1416F;
         System.out.println("varFloat = " + varFloat);
         
-        // Always by default the primitives data has value 0 and reals 0.0.
+        // Always by default the primitives data has value 0 and reals data 0.0.
         // (It does not apply if value has not been assigned inside main method)
 
         System.out.println("varOutMethod = " + varOutMethod);
