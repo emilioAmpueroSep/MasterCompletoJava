@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 public class I_TypeConversion {
     public static void main(String[] args) {

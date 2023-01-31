@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 public class D_PrimitivesCharacters {
     public static void main(String[] args) {

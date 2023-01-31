@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 import java.util.Scanner; // class imported, which contains Scanner
 

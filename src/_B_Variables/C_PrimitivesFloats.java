@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 public class C_PrimitivesFloats {
     

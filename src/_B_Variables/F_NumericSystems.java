@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 public class F_NumericSystems {
     public static void main(String[] args) {

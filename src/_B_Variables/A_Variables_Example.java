@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 public class A_Variables_Example {
     public static void main(String[] args) {

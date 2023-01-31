@@ -1,4 +1,4 @@
-package _BVariables;
+package _B_Variables;
 
 import javax.swing.*; // class imported, which contains JOptionPane
 
