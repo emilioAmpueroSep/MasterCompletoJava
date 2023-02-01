@@ -24,34 +24,34 @@ public class G_LogicalOperatorsLogin {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese el username");
+        System.out.println("Entry a username");
         String u = scanner.next();
 
-        System.out.println("Ingrese el password");
+        System.out.println("Entry the password");
         String p = scanner.next();
 
-        boolean esAutenticado = false;
+        boolean isAuthenticated = false;
 
         for(int i = 0; i < usernames.length; i++){
-            esAutenticado = (usernames[i].equals(u) && passwords[i].equals(p))? true: esAutenticado;
+            isAuthenticated = (usernames[i].equals(u) && passwords[i].equals(p))? true: isAuthenticated;
 
             /*
             if( (usernames[i].equals(u) && passwords[i].equals(p)) ){
-                esAutenticado = true;
-                break;
+                isAuthenticated = true;
+                break; // finish then it finds the result, it cant implement in ternary operator.
             }
             */
         }
 
-        String mensaje = esAutenticado ? "Bienvenido usuario ".concat(u).concat("!") :
-                "Username o contraseña incorrecto!\nLo sentimos, requiere autenticación";
-        System.out.println("mensaje = " + mensaje);
+        String message = isAuthenticated ? "Bienvenido usuario ".concat(u).concat("!") :
+                "Username or password incorrect!\nSorry, requires authentication";
+        System.out.println("message = " + message);
 
-        /*if(esAutenticado){
-            System.out.println("Bienvenido usuario ".concat(u).concat("!"));
+        /*if(isAuthenticated){
+            System.out.println("Welcome user ".concat(u).concat("!"));
         } else {
-            System.out.println("Username o contraseña incorrecto!");
-            System.out.println("Los siento, requiere autenticación");
+            System.out.println("Username or password incorrect!");
+            System.out.println("Sorry, requires authentication");
         }*/
     }
 }
