@@ -13,7 +13,7 @@ public class D_SwitchCaseNumDaysMonths {
         System.out.println("Enter the year (YYYY)");
         int year = s.nextInt();
 
-        switch(month){
+        switch (month) {
             case 1, 3, 5, 7, 8, 10, 12: // we can use in vertical or horizontal form
 //            case 1:
 //            case 3:
@@ -31,7 +31,7 @@ public class D_SwitchCaseNumDaysMonths {
                 daysNumber = 30;
                 break;
             case 2:
-                if(year % 400 == 0 || ( (year % 4 == 0) && !(year % 100 == 0))){
+                if (year % 400 == 0 || ((year % 4 == 0) && !(year % 100 == 0))) {
                     daysNumber = 29;
                 } else {
                     daysNumber = 28;

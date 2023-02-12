@@ -25,7 +25,8 @@ public class J_DetalleDeFactura {
 
         double montoTotalNeto = (totalBruto + impuestoIva);
 
-        System.out.println("La factura " + nombreFactura + " tiene un total bruto de "+ totalBruto +", con un impuesto de " + impuestoIva + " y el monto después de impuesto es de " + montoTotalNeto);
+        System.out.println("La factura " + nombreFactura + " tiene un total bruto de "+ totalBruto +
+                ", con un impuesto de " + impuestoIva + " y el monto después de impuesto es de " + montoTotalNeto);
 
         sc.close();
 
