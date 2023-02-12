@@ -1,9 +1,6 @@
 package _E_ControlFlows;
 
 import java.util.Scanner;
-import java.util.stream.DoubleStream;
-
-import static java.lang.Double.NaN;
 
 /*
 Pedir 20 notas finales de alumnos en una escala de 1 a 7, manejar decimales en las notas (double). Mostrar el promedio
@@ -18,40 +15,39 @@ public class L_NotasEstudiantes {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Cantidad de notas a ingresar:");
+        int cantNotas = sc.nextInt();
 
-        int canNotas = sc.nextInt();
-        double promedioAP = 0, promedioMen4 = 0, sumaNotas;
-        int numeroAP = 0, contador4 = 0, contadorNotas1 = 0;
+        double notasMas5 = 0, notasMen4 = 0, promedioTotal = 0;
+        int cantNotasMas5 = 0, cantNotasMen4 = 0, contadorNotas1 = 0;
+        double[] arrNotas = new double[cantNotas];
 
-        double[] arrNotas = new double[canNotas];
-
-        if (canNotas != 4) {
+        if (cantNotas != 3) {
             System.out.println("La cantidad de notas debe ser igual a 20");
             return;
-        } else for (int i = 0; i < canNotas; i++) {
-            System.out.println("Ingrese nota numero " + (i + 1) + "(en una escala de 1 a 7): ");
+        } else for (int i = 0; i < cantNotas; i++) {
+            System.out.println("En una escala de 1 a 7. Ingrese nota numero " + (i + 1));
             arrNotas[i] = sc.nextDouble();
             if (arrNotas[i] == 0) {
                 System.out.println("Programa terminado");
                 break;
             } else if (arrNotas[i] > 5) {
-                promedioAP += arrNotas[i];
-                numeroAP++;
+                notasMas5 += arrNotas[i];
+                cantNotasMas5++;
             } else if (arrNotas[i] < 4) {
-                promedioMen4 += arrNotas[i];
-                contador4++;
+                notasMen4 += arrNotas[i];
+                cantNotasMen4++;
                 if (arrNotas[i] == 1) {
                     contadorNotas1++;
                 }
             }
+            promedioTotal += arrNotas[i];
+
         }
 
-        sumaNotas = DoubleStream.of(arrNotas).sum();
-
-        System.out.println("El promedio de los aprobados con nota mayor a 5) es: " + (promedioAP / numeroAP));
-        System.out.println("El promedio de los suspendidos (nota < 4) es: " + (promedioMen4 / contador4));
+        System.out.println("El promedio de los aprobados con nota mayor a 5) es: " + (notasMas5 / cantNotasMas5));
+        System.out.println("El promedio de los suspendidos (nota < 4) es: " + (notasMen4 / cantNotasMen4));
         System.out.println("La cantidad de notas 1 son: " + contadorNotas1);
-        System.out.println("El promedio final es: " + (sumaNotas / canNotas));
+        System.out.println("El promedio final es: " + (promedioTotal / cantNotas));
 
 
         // =========================================================================================================
