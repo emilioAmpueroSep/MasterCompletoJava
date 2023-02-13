@@ -1,6 +1,6 @@
 package _E_ControlFlows;
 
-public class G_WhielStatement {
+public class G_WhileStatement {
     public static void main(String[] args) {
 
         int i = 0;
