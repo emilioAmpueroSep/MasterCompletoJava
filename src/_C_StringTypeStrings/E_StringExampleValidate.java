@@ -23,11 +23,12 @@ public class E_StringExampleValidate {
 
             if (isNull){
 //              course = "Java programming";
-                course = " ";
+//              course = "  ";
+              course = "";
             }
 
             // length() use:
-            boolean isVacia = course.length() == 0; // it is empty
+            boolean isVacia = course.length() == 0; // it is empty... isVacia is used for not have problems with isEmpty()
             System.out.println("isVacia = " + isVacia);
 
             if(isVacia) {
@@ -42,7 +43,7 @@ public class E_StringExampleValidate {
 
             if(course.isEmpty() == false) { // !course.isEmpty()
                 System.out.println(course.toUpperCase());
-                System.out.println("Welcome to the course ".concat(course));
+                System.out.println("Welcome to the course".concat(course));
 
             // isBlank() use: (more strict because dont allow empty data nor white spaces)
             boolean isBlank = course.isBlank(); // java version 11...

@@ -4,7 +4,7 @@ public class I_TypeConversion {
     public static void main(String[] args) {
 
         System.out.println("======Convert variable type string to int ======");
-        // * we can convert to all type of data float, double, long , etc.
+        // * we can convert all types of data float, double, long , etc.
 
         String StrNumber = "50";
         
@@ -23,7 +23,6 @@ public class I_TypeConversion {
         System.out.println("\n======Convert variable type int to string======");
 
         int anotherIntNumber = 100;
-
         System.out.println("anotherIntNumber = " + anotherIntNumber);
 
         // wrapper class
@@ -53,7 +52,7 @@ public class I_TypeConversion {
         in memory a type of data (ambiguous data). Recommend to change since int to long, char to short, etc. not int to short, long to int, short to char, etc.
         */
 
-        // primitives can be change between other primitives data or floats data, but not to string or boolean.
+        // Primitives can be change between other primitives data or floats data, but not to string or boolean.
 
         int i = 22768;
 //        int i = 32768; // problems, because it will be ambiguous data
@@ -66,10 +65,6 @@ public class I_TypeConversion {
         System.out.println("b = " + b);
         float f = (float) i;
         System.out.println("f = " + f);
-
-
-
-
         
     }
 }

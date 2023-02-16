@@ -17,7 +17,7 @@ public class B_StringExampleConcatenation {
         System.out.println(detail + (ANumber + BNumber)); // correct
         System.out.println(ANumber + BNumber + detail);
 
-        // concat(), here only concat string object, not modify (immutable), + = String builder
+        // concat(), here is only concat string objects, not modify (immutable), + = String builder
 //        String detail2 = course.concat(" with " + teacher);
 //        String detail2 = course.concat(" with ".concat(teacher));
         String detail2 = course.concat(" with ").concat(teacher);

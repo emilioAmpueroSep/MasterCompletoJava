@@ -52,23 +52,22 @@ public class F_StringMethodsExample {
         System.out.println("tongueTwister = " + tongueTwister); // its immutable
 
         System.out.println("\nindexOf()=============================");
-
+//      it shows location where is the letter(its position):
         System.out.println("tongueTwister.indexOf('n') = " + tongueTwister.indexOf('n'));
         System.out.println("tongueTwister.indexOf('x') = " + tongueTwister.indexOf('x')); // -1 it means does not exist
 
         System.out.println("\nlastIndexOf()=============================");
-
-        System.out.println("tongueTwister.lastIndexOf('t') = " + tongueTwister.lastIndexOf('t')); // show where is the last character in the string
+//      it shows where is the last character in the string(its position):
+        System.out.println("tongueTwister.lastIndexOf('t') = " + tongueTwister.lastIndexOf('t'));
         System.out.println("tongueTwister.lastIndexOf('Twister') = " + tongueTwister.lastIndexOf("Twister"));
 
         System.out.println("\ncontains()=============================");
-
-        // validate if character or string exist in variable(boolean), it only accepts "" not ''
+        // validate if character or string exist in variable(boolean), it only accepts "" symbol  not '' symbol
         System.out.println("tongueTwister.contains('t') = " + tongueTwister.contains("t"));
 
-        System.out.println("tongueTwister.contains('t') = " + tongueTwister.startsWith("tong"));
+        System.out.println("tongueTwister.contains('tong') = " + tongueTwister.startsWith("tong"));
 //        System.out.println("tongueTwister.contains('t') = " + tongueTwister.startsWith("t"));
-        System.out.println("tongueTwister.contains('t') = " + tongueTwister.endsWith("ter"));
+        System.out.println("tongueTwister.contains('ter') = " + tongueTwister.endsWith("ter"));
 //        System.out.println("tongueTwister.contains('t') = " + tongueTwister.endsWith("r"));
 
         System.out.println("\ntrim()=============================");
