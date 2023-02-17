@@ -40,7 +40,11 @@ public class C_ExampleJavaUtilDateParse {
             }
 
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+//            e.printStackTrace();
+            System.err.println("Date has an incorrect format: ");
+            System.err.println("The format must be: 'yyyy-MM-dd'");
+//          System.exit(1); //to finish to run
+            main(args); // return to main methods
         }
     }
 }

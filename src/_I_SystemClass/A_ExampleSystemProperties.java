@@ -4,6 +4,7 @@ import java.util.Properties;
 
 public class A_ExampleSystemProperties {
     public static void main(String[] args) {
+        //    The system class cannot be instantiated or inherited (static)
 
 //      username of my OS:
         String username = System.getProperty("user.name");
