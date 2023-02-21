@@ -1,6 +1,6 @@
 package _J_MathClass;
 
-public class A_Example_Math_Class {
+public class A_ExampleMathClass {
     public static void main(String[] args) {
 //        -3 and 3 is the same:
         int absolute = Math.abs(-3);
@@ -22,30 +22,32 @@ public class A_Example_Math_Class {
         double piso = Math.floor(3.5);
         System.out.println("piso = " + piso);
 //        round values on the middle
-        long entero = Math.round(Math.PI);
+        long entero = Math.round(Math.PI); // PI exist in math class as a constant
         System.out.println("entero = " + entero);
 
-        double exp = Math.exp(1);
+        double exp = Math.exp(1); // exponent, 1 = 2.718281828459045, 2 = 2.718281828459045 raised up 2...
         System.out.println("exp = " + exp);
 
-        double log = Math.log(10);
+        double log = Math.log(10); // logarithm
         System.out.println("log = " + log);
 
-        double potencia = Math.pow(10, 3);
-        System.out.println("potencia = " + potencia);
+        double power = Math.pow(10, 3); // power - potencia
+        System.out.println("power = " + power);
 
-        double raiz = Math.sqrt(5);
-        System.out.println("raiz = " + raiz);
+        double root = Math.sqrt(5); // square root - raiz cuadrada
+        System.out.println("root = " + root);
+
+        // trigonometry:
 
         double grados = Math.toDegrees(1.57);
         grados = Math.round(grados);
-        System.out.println("convertir de radianes a grados = " + grados);
+        System.out.println("convert radians to degrees = " + grados);
 
         double radianes = Math.toRadians(90.00);
-        System.out.println("convertir de grados a radianes = " + radianes);
+        System.out.println("convert from degrees to radians = " + radianes);
 
         System.out.println("sin(90): " + Math.sin(radianes));
-        System.out.println("cos(90): " + Math.cos(radianes));
+        System.out.println("cos(90): " + Math.cos(radianes));  // cosine, coseno
 
         radianes = Math.toRadians(180.00);
         System.out.println("cos(180): " + Math.cos(radianes));
