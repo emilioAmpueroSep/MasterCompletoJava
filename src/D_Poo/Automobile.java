@@ -35,47 +35,48 @@ public class Automobile { // template
     }
 
 
-    // 3. Setters and Getters:
+    // 3. Getters Setters:
+
+
     public String getBrand() {
-        return this.brand;
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getModel() {
         return model;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public double getDisplacement() {
-        return displacement;
-    }
-
-    public int getTankCapacity() {
-        return tankCapacity;
-    }
-
-    public void setBrand() {
-        this.brand = brand;
-    }
-
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
+    public double getDisplacement() {
+        return displacement;
+    }
+
     public void setDisplacement(double displacement) {
         this.displacement = displacement;
+    }
+
+    public int getTankCapacity() {
+        return tankCapacity;
     }
 
     public void setTankCapacity(int tankCapacity) {
         this.tankCapacity = tankCapacity;
     }
-
 
     // 4. Operation methods(calculate, queries; etc.)
     public String seeDetail() {
@@ -137,6 +138,20 @@ public class Automobile { // template
                 && this.brand.equals(a.getBrand())
                 && this.model.equals(a.getModel()));
     }
+
+    // toString is a method of Object class which is used for show a class in String format (String array)
+
+    @Override
+    public String toString() {
+        return "Automobile{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+//                ", color='" + color + '\'' +
+//                ", displacement=" + displacement +
+//                ", tankCapacity=" + tankCapacity +
+                '}';
+    }
+
 }
 
 /*

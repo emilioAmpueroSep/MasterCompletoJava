@@ -46,9 +46,15 @@ public class ExampleAutomobile {
         System.out.println("Are they equal? " + (auto3.equals(auto4)));
         System.out.println("Are they equal? " + (auto3.equals(auto5)));
         System.out.println("Are they equal? " + (auto3.equals(date)));
+
+        System.out.println(auto3); // implicit to string
+        System.out.println(auto3.toString()); // explicit to string
+
         System.out.println(auto.seeDetail());
         System.out.println(auto2.seeDetail());
         System.out.println(auto3.seeDetail());
+
+
         System.out.println(auto.speedUp(3000));
         System.out.println(auto.brake());
 
