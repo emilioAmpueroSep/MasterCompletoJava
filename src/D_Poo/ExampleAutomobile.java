@@ -50,9 +50,9 @@ public class ExampleAutomobile {
         System.out.println(auto3); // implicit to string
         System.out.println(auto3.toString()); // explicit to string
 
-        System.out.println(auto.seeDetail());
-        System.out.println(auto2.seeDetail());
-        System.out.println(auto3.seeDetail());
+        System.out.println(auto.seeDetail2());
+        System.out.println(auto2.seeDetail2());
+        System.out.println(auto3.seeDetail2());
 
 
         System.out.println(auto.speedUp(3000));

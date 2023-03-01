@@ -39,3 +39,5 @@ public class I_ExampleArrayDetectOrder {
 
     }
 }
+
+// we can do the same exercise with String instead of int but using methos ".toCompare()"

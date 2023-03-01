@@ -3,18 +3,32 @@ package D_Poo;
 public class Automobile { // template
 
     // 1. Attributes:
+    private int id;
     private String brand;
     private String model;
-    private String color = "silver";
+    private String color = Automobile.GREY_COLOR;
     private double displacement;
     private int tankCapacity = 40;
+    private static String colorVehicleLicense = Automobile.ORANGE_COLOR; // patente vehicular
+    private static int tankCapacityStatic = 30;
+    private static int lastId;
+    public static final int MAX_HIGHWAY_SPEED = 120; // constant
+    public static final int MAX_CITY_SPEED = 60; // constant
+    public static final String RED_COLOR = "red";
+    public static final String YELLOW_COLOR = "yellow";
+    public static final String BLUE_COLOR = "blue";
+    public static final String WHITE_COLOR = "white";
+    public static final String GREY_COLOR = "grey";
+    public static final String ORANGE_COLOR = "orange";
 
-    public Automobile() {
-
-    }
 
     // 2. Constructors:
+    public Automobile() {
+        this.id = ++lastId; // autoincrement id
+    }
+
     public Automobile(String brand, String model) {
+        this(); // invoke attributes before
         this.brand = brand;
         this.model = model;
     }
@@ -78,6 +92,32 @@ public class Automobile { // template
         this.tankCapacity = tankCapacity;
     }
 
+    // get to read a static var:
+    public static String getColorVehicleLicense() {
+        return colorVehicleLicense;
+    }
+
+    // Set to modify a static var:
+    public static void setColorVehicleLicense(String colorVehicleLicense) {
+        Automobile.colorVehicleLicense = colorVehicleLicense;
+    }
+
+    public static int getTankCapacityStatic() {
+        return tankCapacityStatic;
+    }
+
+    public static void setTankCapacityStatic(int tankCapacityStatic) {
+        Automobile.tankCapacityStatic = tankCapacityStatic;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     // 4. Operation methods(calculate, queries; etc.)
     public String seeDetail() {
 //        String model = "other";
@@ -93,9 +133,11 @@ public class Automobile { // template
 
     // other way to do the same method above:
     public String seeDetail2() {
-        return "auto.brand = " + this.brand +
+        return "auto.id = " + this.id +
+                "\nauto.brand = " + this.brand +
                 "\nauto.model = " + this.model +
                 "\nauto.color = " + this.color +
+                "\nauto.ColorVehicleLicense = " + Automobile.colorVehicleLicense + // .this must not be used in static variables, but we can use only the name the attribute or its class more its name
                 "\nauto.displacement = " + this.displacement;
     }
 
@@ -122,6 +164,11 @@ public class Automobile { // template
         return km / (tankCapacity * (percentageFuel / 100f));
     }
 
+    // example of static methods:
+    public static float calculateConsumptionFuelStatic(int km, int percentageFuel) {
+        return km / (tankCapacityStatic * (percentageFuel / 100f));
+    }
+
 // 5. Fix or overide method:
 
     // this notation is not obligatory; here we are over writting method which is located in object class(father):
@@ -144,6 +191,7 @@ public class Automobile { // template
     @Override
     public String toString() {
         return "Automobile{" +
+                "id='" + id + '\'' +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
 //                ", color='" + color + '\'' +
@@ -156,14 +204,28 @@ public class Automobile { // template
 
 /*
  - class entity; entity = (characteristic + behavior).
+ \
  - classes cannot be private because it cannot be invoked in other part of the program.
- - class accepts encapsulation(visibility) of type public or default only.
- - it is not a good practice to use SOUT in classes of entity like this one, it is better to use it in main class(return a var only).
- - It's a good practice private or protected variables or attributes.
- - getter and setter is a standart to read and modify attributes (hidden) and both words must be used in the methods.
- - constructor methods is a method type void but that word is no used on it. it's only used for inicialiting an object with data or
- without data (it can exist more than 1 constructor method). And it cannot be invoked like a common metohd.
- - All objects are differents, even though they have the same arguments added in its parameters.
- - We can over write methods that exists by default to change its behavior, we have to add notation @override
 
+ - class accepts encapsulation(visibility) of type public or default only.
+
+ - it is not a good practice to use SOUT in classes of entity like this one, it is better to use it in main class(return a var only).
+
+ - It's a good practice private or protected variables or attributes.
+
+ - getter and setter is a standard to read and modify attributes (hidden) and both words must be used in the methods.
+
+ - constructor methods is a method type void but that word is not used on it. it's only used for initializing an object with data or
+ without data (it can exist more than 1 constructor method). And it cannot be invoked like a common method.
+
+ - All objects are different, even though they have the same arguments added in its parameters.
+
+ - We can overwrite methods that exists by default to change its behavior, we have to add notation @override
+
+ - Static var or methods belong to class not objects(instance of object); if I change a value of attribute static, it is going to change in all the other objects that use it.
+ - to call ir, I have to code: ex: Car.wheels not this.wheels (.this is forbidden) and we must use only vars in methods statics and vice verse.
+
+ - final vars (constants) normally it is used with public visibility(sometimes private) and static behavior, and its value cannot be changed.
+ - we must initialize and declare vars final at the same time (we cannot do initialize and then declare it).
+ - we can parameterize with constants statics in its use.
  */
