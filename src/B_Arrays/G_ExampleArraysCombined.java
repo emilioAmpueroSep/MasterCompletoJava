@@ -1,5 +1,7 @@
 package B_Arrays;
 
+import D_Poo.Automobile;
+
 public class G_ExampleArraysCombined {
     public static void main(String[] args) {
         int[] a, b, c;
@@ -71,7 +73,7 @@ public class G_ExampleArraysCombined {
                 c[aux++] = a[i + j];
             }
             for (int j = 0; j < 3; j++) {
-                c[aux++] = b[i+8];
+                c[aux++] = b[i + j];
             }
         }
 

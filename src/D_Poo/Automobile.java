@@ -6,10 +6,16 @@ public class Automobile { // template
     private int id;
     private String brand;
     private String model;
-    private String color = Automobile.GREY_COLOR;
-    private double displacement;
-    private int tankCapacity = 40;
-    private static String colorVehicleLicense = Automobile.ORANGE_COLOR; // patente vehicular
+    //    private String color = Automobile.GREY_COLOR; // constant final
+    private Color color = Color.GREY; // enum Color
+    private String color2 = Automobile.YELLOW_COLOR;
+    //    private double displacement;
+    private Engine engine;
+    //    private int tankCapacity = 40;
+    private Person driver;
+    private Tank tank;
+    private Wheel[] wheel;
+    private static Color colorVehicleLicense = Color.ORANGE; // patente vehicular // enum Color
     private static int tankCapacityStatic = 30;
     private static int lastId;
     public static final int MAX_HIGHWAY_SPEED = 120; // constant
@@ -20,6 +26,7 @@ public class Automobile { // template
     public static final String WHITE_COLOR = "white";
     public static final String GREY_COLOR = "grey";
     public static final String ORANGE_COLOR = "orange";
+    private TypeAutomobile type; // (type)we can name whatever name we want it
 
 
     // 2. Constructors:
@@ -33,21 +40,35 @@ public class Automobile { // template
         this.model = model;
     }
 
-    public Automobile(String brand, String model, String color) {
+    public Automobile(String brand, String model, Color color) { // Color color is Enum
         this(brand, model); // A way to bring attributes of other constructor similar. to coding less lines.
         this.color = color;
     }
 
-    public Automobile(String brand, String model, String color, double displacement) {
+    public Automobile(String brand, String model, Color color, Engine engine) {
         this(brand, model, color); // A way to bring attributes of other constructor similar. to coding less lines.
-        this.displacement = displacement;
+        this.engine = engine;
     }
 
-    public Automobile(String brand, String model, String color, double displacement, int tankCapacity) {
-        this(brand, model, color, displacement); // A way to bring attributes of other constructor similar. to coding less lines.
-        this.tankCapacity = tankCapacity;
+    public Automobile(String brand, String model, Color color, Engine engine, Tank tank) {
+        this(brand, model, color, engine); // A way to bring attributes of other constructor similar. to coding less lines.
+        this.tank = tank;
     }
 
+    // constructor similar above but with final constant, not Enum:
+    public Automobile(String brand, String model, String color2, Engine engine, Tank tank) {
+        this.brand = brand;
+        this.model = model;
+        this.color2 = color2; // here final constant
+        this.engine = engine;
+        this.tank = tank;
+    }
+
+    public Automobile(String brand, String model, Color color, Engine engine, Person driver, Tank tank, Wheel[] wheel) {
+        this(brand, model, color, engine, tank);
+        this.driver = driver;
+        this.wheel = wheel;
+    }
 
     // 3. Getters Setters:
 
@@ -68,37 +89,21 @@ public class Automobile { // template
         this.model = model;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    public double getDisplacement() {
-        return displacement;
-    }
-
-    public void setDisplacement(double displacement) {
-        this.displacement = displacement;
-    }
-
-    public int getTankCapacity() {
-        return tankCapacity;
-    }
-
-    public void setTankCapacity(int tankCapacity) {
-        this.tankCapacity = tankCapacity;
-    }
-
     // get to read a static var:
-    public static String getColorVehicleLicense() {
+    public static Color getColorVehicleLicense() {
         return colorVehicleLicense;
     }
 
     // Set to modify a static var:
-    public static void setColorVehicleLicense(String colorVehicleLicense) {
+    public static void setColorVehicleLicense(Color colorVehicleLicense) {
         Automobile.colorVehicleLicense = colorVehicleLicense;
     }
 
@@ -118,6 +123,50 @@ public class Automobile { // template
         this.id = id;
     }
 
+    public TypeAutomobile getType() {
+        return type;
+    }
+
+    public void setType(TypeAutomobile type) {
+        this.type = type;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Person getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Person driver) {
+        this.driver = driver;
+    }
+
+    // we can do this in getters:
+    public Tank getTank() {  // Eliminating NullPointerException
+        if (tank == null) {
+            this.tank = new Tank();
+        }
+        return tank;
+    }
+
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+    public Wheel[] getWheel() {
+        return wheel;
+    }
+
+    public void setWheel(Wheel[] wheel) {
+        this.wheel = wheel;
+    }
+
     // 4. Operation methods(calculate, queries; etc.)
     public String seeDetail() {
 //        String model = "other";
@@ -126,19 +175,26 @@ public class Automobile { // template
         sb.append("\nauto.model = " + this.model);
 //        sb.append("auto.model = " + model); // calling a local variable model
         sb.append("\nauto.color = " + this.color);
-        sb.append("\nauto.displacement = " + this.displacement);
-        sb.append("\nauto.tankCapacity = " + this.tankCapacity);
+        sb.append("\nauto.displacement = " + this.engine.getDisplacement());
+        sb.append("\nauto.tankCapacity = " + this.tank.getTankCapacity());
         return sb.toString(); // return something
     }
 
     // other way to do the same method above:
     public String seeDetail2() {
-        return "auto.id = " + this.id +
-                "\nauto.brand = " + this.brand +
-                "\nauto.model = " + this.model +
-                "\nauto.color = " + this.color +
-                "\nauto.ColorVehicleLicense = " + Automobile.colorVehicleLicense + // .this must not be used in static variables, but we can use only the name the attribute or its class more its name
-                "\nauto.displacement = " + this.displacement;
+        String seeDetail2 = "auto.id = " + this.id +
+                "\nauto.brand = " + this.getBrand() +
+                "\nauto.model = " + this.getModel();
+        if (this.getType() != null) { // Eliminating NullPointerException
+            seeDetail2 += "\nauto.type = " + this.getType().getDescription();
+        }
+        seeDetail2 += "\nauto.color = " + this.color.getColor() +
+                "\nauto.ColorVehicleLicense = " + Automobile.colorVehicleLicense.getColor(); // .this must not be used in static variables, but we can use only the name the attribute or its class more its name
+
+        if (this.getEngine() != null) { // Eliminating NullPointerException
+            seeDetail2 += "\nauto.displacement = " + this.engine.getDisplacement();
+        }
+        return seeDetail2;
     }
 
     public String speedUp(int rpm) {
@@ -157,11 +213,11 @@ public class Automobile { // template
     }
 
     public float calculateConsumptionFuel(int km, float percentageFuel) {
-        return km / (tankCapacity * percentageFuel);
+        return km / (this.getTank().getTankCapacity() * percentageFuel);
     }
 
     public float calculateConsumptionFuel(int km, int percentageFuel) {
-        return km / (tankCapacity * (percentageFuel / 100f));
+        return km / (this.getTank().getTankCapacity() * (percentageFuel / 100f));
     }
 
     // example of static methods:
@@ -228,4 +284,8 @@ public class Automobile { // template
  - final vars (constants) normally it is used with public visibility(sometimes private) and static behavior, and its value cannot be changed.
  - we must initialize and declare vars final at the same time (we cannot do initialize and then declare it).
  - we can parameterize with constants statics in its use.
+
+ - Enum: It is similar to array of constants; It is alternative to use a lot of final constant(more details in file Enum).
+
+ - NullPointerException : It occurs when some data is null so, if we have some kind of problem like this; we have to fix adding if or some condition.
  */

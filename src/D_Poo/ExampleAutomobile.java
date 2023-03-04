@@ -5,10 +5,12 @@ import java.util.Date;
 public class ExampleAutomobile {
     public static void main(String[] args) {
 
-        Automobile auto = new Automobile("Subaru", "Impreza"); // we instance the object Automobile and we save in the memory of program the reference towards this object.
-        Automobile auto2 = new Automobile("Mazda", "323", "Red", 1.8); // instantiating a new object called auto2
-        Automobile auto3 = new Automobile("Nissan", "Navara", "Pink", 1.5, 50);
-        Automobile auto4 = new Automobile("Nissan", "Navara", "Pink", 1.5, 50);
+        Engine engineAuto4 = new Engine(2.0, TypeEngine.GASOLINE); // we can do a var new instance of some class.
+
+        Automobile auto = new Automobile("Subaru", "Impreza"); // we instance the object Automobile, and we save in the memory of program the reference towards this object.
+        Automobile auto2 = new Automobile("Mazda", "323", Color.RED, new Engine(2.0, TypeEngine.DIESEL)); // instantiating a new object called auto2
+        Automobile auto3 = new Automobile("Nissan", "Navara", Color.YELLOW, new Engine(4.0, TypeEngine.GASOLINE));
+        Automobile auto4 = new Automobile("Nissan", "Navara", Color.YELLOW, engineAuto4, new Tank(50));
         Automobile auto5 = new Automobile();
         Date date = new Date();
 /*
@@ -32,8 +34,8 @@ public class ExampleAutomobile {
 //        auto.setBrand("Subaru");
 //        auto.setModel("Impreza");
 //        auto.setColor("black");
-        auto.setDisplacement(2.0);
-        auto.setTankCapacity(30);
+        auto.setEngine(new Engine(2.0, TypeEngine.GASOLINE));
+        auto.setTank(new Tank());
 //        System.out.println("auto2.brand = " + auto.getBrand());
 
 //        auto2.setBrand("Mazda");
