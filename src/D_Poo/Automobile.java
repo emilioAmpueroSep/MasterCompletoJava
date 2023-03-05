@@ -15,6 +15,7 @@ public class Automobile { // template
     private Person driver;
     private Tank tank;
     private Wheel[] wheel;
+    private int indexWheels;
     private static Color colorVehicleLicense = Color.ORANGE; // patente vehicular // enum Color
     private static int tankCapacityStatic = 30;
     private static int lastId;
@@ -28,10 +29,12 @@ public class Automobile { // template
     public static final String ORANGE_COLOR = "orange";
     private TypeAutomobile type; // (type)we can name whatever name we want it
 
+    //===================================================================================================================
 
     // 2. Constructors:
     public Automobile() {
         this.id = ++lastId; // autoincrement id
+        this.wheel = new Wheel[5]; // initialized to avoid NullPointerException method addWheel (we can initialize en attribute wheel too).
     }
 
     public Automobile(String brand, String model) {
@@ -64,11 +67,13 @@ public class Automobile { // template
         this.tank = tank;
     }
 
-    public Automobile(String brand, String model, Color color, Engine engine, Person driver, Tank tank, Wheel[] wheel) {
+    public Automobile(String brand, String model, Color color, Engine engine, Tank tank, Person driver, Wheel[] wheel) {
         this(brand, model, color, engine, tank);
         this.driver = driver;
         this.wheel = wheel;
     }
+
+    //===================================================================================================================
 
     // 3. Getters Setters:
 
@@ -149,8 +154,8 @@ public class Automobile { // template
 
     // we can do this in getters:
     public Tank getTank() {  // Eliminating NullPointerException
-        if (tank == null) {
-            this.tank = new Tank();
+        if (tank == null) { // if it is empty en instance of object
+            this.tank = new Tank(); // adding 40 by default
         }
         return tank;
     }
@@ -165,6 +170,13 @@ public class Automobile { // template
 
     public void setWheel(Wheel[] wheel) {
         this.wheel = wheel;
+    }
+
+    public Automobile addWheels(Wheel wheel) { // adding one by one
+        if(indexWheels < this.wheel.length) { // obligate to put only 5
+            this.wheel[indexWheels++] = wheel;
+        }
+        return this; // it returns the same class Automobile
     }
 
     // 4. Operation methods(calculate, queries; etc.)
@@ -193,6 +205,17 @@ public class Automobile { // template
 
         if (this.getEngine() != null) { // Eliminating NullPointerException
             seeDetail2 += "\nauto.displacement = " + this.engine.getDisplacement();
+        }
+
+        if (getDriver() != null) {
+            seeDetail2 += "\n Driver Auto:" + this.getDriver();
+        }
+
+        if (getWheel() != null) {
+            seeDetail2 += "\n Wheel of Car:";
+            for (Wheel wh : this.getWheel()) {
+                System.out.println(wh.getBrand() + ", ring: " + wh.getRing() + ", width: " + wh.getWidth());
+            }
         }
         return seeDetail2;
     }
@@ -227,10 +250,10 @@ public class Automobile { // template
 
 // 5. Fix or overide method:
 
-    // this notation is not obligatory; here we are over writting method which is located in object class(father):
-    @Override // changing the behavior of method to comparate arguments, not the objects. (polymorphism)
+    // this notation is not obligatory; here we are overwriting method which is located in object class(father):
+    @Override // changing the behavior of method to compare arguments, not the objects. (polymorphism)
     public boolean equals(Object obj) {
-        if (this == obj) { // comparing for reference(both are the same)
+        if (this == obj) { // comparing for reference(both are the same) (Object in that case)
             return true;
         }
         if (!(obj instanceof Automobile)) { // instanceof, compare if obj it's or not of Automobile type.

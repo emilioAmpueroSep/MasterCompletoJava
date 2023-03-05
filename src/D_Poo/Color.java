@@ -20,7 +20,7 @@ public enum Color { // collection of attributes constant type
         return color;
     }
 
-    // if I do this, by default it gonna take values passed by parameters,it is not necessary to add .getColor() like a method
+    // if I do this, by default it gonna take values passed by parameters,it is not necessary to add .setColor() like a method
     @Override
     public String toString() {
         return this.color;

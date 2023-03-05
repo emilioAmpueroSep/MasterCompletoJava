@@ -30,6 +30,7 @@ public class ExampleAutomobile {
 //        System.out.println("auto2.brand = " + auto2.brand); System.out.println("auto2.model = " + auto2.model); System.out.println("auto2.color = " + auto2.color); System.out.println("auto2.displacement = " + auto2.displacement);
 
  */
+
 // Hidden:
 //        auto.setBrand("Subaru");
 //        auto.setModel("Impreza");
