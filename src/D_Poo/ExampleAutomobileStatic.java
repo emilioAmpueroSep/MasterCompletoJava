@@ -1,5 +1,6 @@
 package D_Poo;
 
+// To run this main, we have to comment "this.wheel = new Wheel[5];" in line 37 Automobile class.
 public class ExampleAutomobileStatic {
     public static void main(String[] args) {
 

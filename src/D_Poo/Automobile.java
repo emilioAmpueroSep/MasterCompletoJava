@@ -1,6 +1,6 @@
 package D_Poo;
 
-public class Automobile { // template
+public class Automobile implements Comparable<Automobile> {
 
     // 1. Attributes:
     private int id;
@@ -34,7 +34,7 @@ public class Automobile { // template
     // 2. Constructors:
     public Automobile() {
         this.id = ++lastId; // autoincrement id
-        this.wheel = new Wheel[5]; // initialized to avoid NullPointerException method addWheel (we can initialize en attribute wheel too).
+        this.wheel = new Wheel[5]; // initialized to avoid NullPointerException method addWheel (we can initialize in attribute wheel too).
     }
 
     public Automobile(String brand, String model) {
@@ -173,7 +173,7 @@ public class Automobile { // template
     }
 
     public Automobile addWheels(Wheel wheel) { // adding one by one
-        if(indexWheels < this.wheel.length) { // obligate to put only 5
+        if (indexWheels < this.wheel.length) { // obligate to put only 5
             this.wheel[indexWheels++] = wheel;
         }
         return this; // it returns the same class Automobile
@@ -269,16 +269,19 @@ public class Automobile { // template
 
     @Override
     public String toString() {
-        return "Automobile{" +
-                "id='" + id + '\'' +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+        return this.id + " : " + brand + " " + model;
 //                ", color='" + color + '\'' +
 //                ", displacement=" + displacement +
 //                ", tankCapacity=" + tankCapacity +
-                '}';
+//                '}';
     }
 
+    @Override // implements Methods
+    public int compareTo(Automobile a) { // using only Comparable<Automobile> // Java generics
+//    public int compareTo(Object o) { // using only Comparable
+//        Automobile a = (Automobile) o; // casting Object to Automobile class // using only Comparable
+        return this.brand.compareTo(a.brand); // brand passed in arrays
+    }
 }
 
 /*

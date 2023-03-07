@@ -7,8 +7,10 @@ public enum TypeAutomobile {
     PICKUP("Pickup", "van", 4),
     COUPE("Coupe", "small-size", 2),
     CONVERTIBLE("Convertible", "sport", 2),
-    FURGON("Furgon", "utilitarian", 3);
+    FURGON("Furgon", "utilitarian", 3),
+    SUV("SUV", "All-Terrain sport",5);
 
+    private static int sport;
     private final String name;
     private final int numberDoor;
     private final String description;
